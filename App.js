@@ -27,5 +27,22 @@ const heading = React.createElement(
 
 const heading2 = <h1 id="heading2" key="h2">Heading 2</h1>
 
+// Functional Component.
+
+const Title = () =>{
+    return(
+        <div>
+            {heading2}
+            <h1>This is a h1</h1>
+        </div>
+    );
+};
+
+const Title2 =()=>(
+    <div>
+        <h2>This is a h2</h2>
+    </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading2);
+root.render(<Title/>);
