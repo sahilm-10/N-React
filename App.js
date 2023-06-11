@@ -55,7 +55,6 @@ const Title = () =>{
     );
 };
 
-
 const HeaderComponent = () =>{
     return(
         <div className="header">
@@ -73,14 +72,48 @@ const HeaderComponent = () =>{
     
 }
 
+const RestroCard = ()=>{
+    return(
+        <div className="card">
+            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf" alt="BurgerKing"/>
+            <h2>Burger King</h2>
+            <h3>Burgers,American</h3>
+            <h4>4,2 stars</h4>
+        </div>
+    )
+}
+
+const Body =()=>{
+    return(
+        <div className="restro-list">
+            <RestroCard/>
+            <RestroCard/>
+            <RestroCard/>
+            <RestroCard/>
+            <RestroCard/>
+            <RestroCard/>
+        </div>
+    )
+}
+
+
+const Footer =()=>{
+    return(
+        <h4>Footer here</h4>
+    )
+}
 
 const AppLayout = () =>{
     return(
-       {}
+    <React.Fragment>
+       <HeaderComponent/>
+       <Body/>
+       <Footer/>
+    </React.Fragment>
     );
 }
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeaderComponent/>);
+root.render(<AppLayout />);
