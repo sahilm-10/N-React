@@ -436,14 +436,15 @@ const restrolist =[
 ];
 
 
-const RestroCard = ({restaurant})=>{
+const RestroCard = ({name,cuisines,lastMileTravelString,cloudinaryImageId})=>{
     // console.log(props);
+    // const  = restaurant.data;
     return(
         <div className="card">
-            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+ restaurant.data?.cloudinaryImageId} alt="BurgerKing"/>
-            <h2>{restaurant.data?.name}</h2>
-            <h3>{restaurant.data?.cuisines.join(", ")}</h3>
-            <h4>{restaurant.data.lastMileTravelString} minutes</h4>
+            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+ cloudinaryImageId} alt="BurgerKing"/>
+            <h2>{name}</h2>
+            <h3>{cuisines.join(", ")}</h3>
+            <h4>{lastMileTravelString} minutes</h4>
         </div>
     )
 }
@@ -453,13 +454,15 @@ const RestroCard = ({restaurant})=>{
 
 const Body =()=>{
     return(
+        
         <div className="restro-list">
-            <RestroCard restaurant={restrolist[0]}/>
-            <RestroCard restaurant={restrolist[1]}/>
-            <RestroCard restaurant={restrolist[2]}/>
-            <RestroCard restaurant={restrolist[0]}/>
-            <RestroCard restaurant={restrolist[1]}/>
-            <RestroCard restaurant={restrolist[2]}/>
+            {
+                restrolist.map((restaurant) =>{
+                    return <RestroCard {...restaurant.data}/>
+                })
+            }
+            
+            
         </div>
     )
 }
